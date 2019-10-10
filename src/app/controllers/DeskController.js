@@ -8,11 +8,13 @@ class ControllerDesks {
         department_id: req.body.department_id
       }
     })
+
     if (deskExist) {
       return res.status(400).json({ error: 'Desk já cadastrado' })
     }
 
     const desk = await Desk.create(req.body)
+
     return res.json(desk)
   }
 

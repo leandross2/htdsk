@@ -11,7 +11,17 @@ class SpotController {
       return res.status(400).json({ error: 'Lugar ocupado!' })
     }
 
-    spot.status = req.body.userId
+    const userCheckined = await Desk.findOne({
+      where: {
+        status: req.userId
+      }
+    })
+
+    if (userCheckined) {
+      return res.status(400).json({ error: 'Você já está em um lugar' })
+    }
+
+    spot.status = req.userId
 
     await spot.save()
 
@@ -37,17 +47,18 @@ class SpotController {
   }
 
   async delete(req, res) {
-    /**
-     * TODO
-     * FIXME: somente quem está no lugar pode alterar o status
-     */
-
     const { id } = req.params
 
     const spot = await Desk.findByPk(id)
 
     if (!spot) {
       return res.status(400).json({ error: 'Lugar não encontrado' })
+    }
+
+    if (spot.status !== req.userId) {
+      return res
+        .status(400)
+        .json({ error: 'Você não pode fazer checkout deste lugar' })
     }
 
     spot.status = null

@@ -21,6 +21,7 @@ routes.get('/desks', DeskController.index)
 routes.post('/desks', DeskController.store)
 
 routes.post('/departments', DepartmentController.store)
+routes.get('/departments', DepartmentController.index)
 
 routes.get('/spots', SpotController.index)
 routes.put('/spots/:id', SpotController.update)
