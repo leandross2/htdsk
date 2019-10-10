@@ -18,7 +18,9 @@ class SpotController {
     })
 
     if (userCheckined) {
-      return res.status(400).json({ error: 'Você já está em um lugar' })
+      return res
+        .status(400)
+        .json({ error: 'Você precisa fazer checkout do seu lugar' })
     }
 
     spot.status = req.userId
@@ -38,6 +40,7 @@ class SpotController {
       include: [
         {
           model: User,
+
           as: 'user',
           attributes: ['name']
         }
@@ -47,12 +50,10 @@ class SpotController {
   }
 
   async delete(req, res) {
-    const { id } = req.params
-
-    const spot = await Desk.findByPk(id)
+    const spot = await Desk.findOne({ where: { status: req.userId } })
 
     if (!spot) {
-      return res.status(400).json({ error: 'Lugar não encontrado' })
+      return res.status(400).json({ error: 'Você ainda não fez checkin' })
     }
 
     if (spot.status !== req.userId) {
@@ -65,7 +66,7 @@ class SpotController {
 
     spot.save()
 
-    return res.json(spot)
+    return res.json({ ok: true })
   }
 }
 

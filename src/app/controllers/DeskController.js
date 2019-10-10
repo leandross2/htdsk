@@ -1,4 +1,5 @@
 import Desk from '../models/Desk'
+import User from '../models/User'
 
 class ControllerDesks {
   async store(req, res) {
@@ -19,7 +20,16 @@ class ControllerDesks {
   }
 
   async index(req, res) {
-    const spots = await Desk.findAll({ where: { status: null } })
+    const spots = await Desk.findAll({
+      include: [
+        {
+          model: User,
+          required: false,
+          as: 'user',
+          attributes: ['name']
+        }
+      ]
+    })
     return res.json(spots)
   }
 }

@@ -25,6 +25,6 @@ routes.get('/departments', DepartmentController.index)
 
 routes.get('/spots', SpotController.index)
 routes.put('/spots/:id', SpotController.update)
-routes.delete('/spots/:id', SpotController.delete)
+routes.delete('/spots', SpotController.delete)
 
 export default routes
