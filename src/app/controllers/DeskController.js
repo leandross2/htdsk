@@ -30,6 +30,7 @@ class ControllerDesks {
         }
       ]
     })
+
     return res.json(spots)
   }
 }
