@@ -18,6 +18,10 @@ class Desk extends Model {
       foreignKey: 'department_id',
       as: 'department'
     })
+    this.belongsTo(models.User, {
+      foreignKey: 'status',
+      as: 'user'
+    })
   }
 }
 
