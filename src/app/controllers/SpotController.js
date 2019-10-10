@@ -7,6 +7,10 @@ class SpotController {
   async update(req, res) {
     const spot = await Desk.findByPk(req.params.id)
 
+    if (!spot) {
+      return res.status(400).json({ error: 'Lugar não encontrado!' })
+    }
+
     if (spot.status) {
       return res.status(400).json({ error: 'Lugar ocupado!' })
     }

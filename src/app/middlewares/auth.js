@@ -7,7 +7,7 @@ export default async (req, res, next) => {
   const authHeader = req.headers.authorization
 
   if (!authHeader) {
-    res.status(401).json({ error: 'token invalido' })
+    return res.status(401).json({ error: 'Efetue login' })
   }
   const token = authHeader.split(' ')[1]
   try {
@@ -17,6 +17,6 @@ export default async (req, res, next) => {
 
     return next()
   } catch (err) {
-    return res.status(400).send({ error: err.message })
+    return res.status(401).json({ error: 'Efetue login' })
   }
 }
