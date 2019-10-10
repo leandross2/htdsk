@@ -12,6 +12,13 @@ class Desk extends Model {
     )
     return this
   }
+
+  static associate(models) {
+    this.belongsTo(models.Department, {
+      foreignKey: 'department_id',
+      as: 'department'
+    })
+  }
 }
 
 export default Desk
