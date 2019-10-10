@@ -15,6 +15,11 @@ class ControllerDesks {
     const desk = await Desk.create(req.body)
     return res.json(desk)
   }
+
+  async index(req, res) {
+    const spots = await Desk.findAll({ where: { status: null } })
+    return res.json(spots)
+  }
 }
 
 export default new ControllerDesks()

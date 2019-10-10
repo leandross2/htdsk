@@ -25,4 +25,4 @@ const configDatabase = {
   }
 }
 
-module.exports = configDatabase.local
+module.exports = configDatabase.remoto
