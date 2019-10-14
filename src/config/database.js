@@ -1,28 +1,12 @@
-const configDatabase = {
-  remoto: {
-    dialect: 'postgres',
-    host: 'salt.db.elephantsql.com',
-    username: 'vqdjgopo',
-    password: 'WK0GRi7mVLRqYHPzQ19a7D5YFzYJq-g2',
-    database: 'vqdjgopo',
-    define: {
-      timestamp: true,
-      underscored: true,
-      underscoredAll: true
-    }
-  },
-  local: {
-    dialect: 'postgres',
-    host: 'localhost',
-    username: 'postgres',
-    password: 'docker',
-    database: 'htdsk',
-    define: {
-      timestamp: true,
-      underscored: true,
-      underscoredAll: true
-    }
+module.exports = {
+  dialect: 'postgres',
+  host: process.env.DB_HOST,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  define: {
+    timestamp: true,
+    underscored: true,
+    underscoredAll: true
   }
 }
-
-module.exports = configDatabase.remoto
