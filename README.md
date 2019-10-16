@@ -10,4 +10,6 @@ Dentro da pasta do projeto utilize o yarn para instalar as dependencias
 
 ```
 yarn
+
+yarn dev
 ```
