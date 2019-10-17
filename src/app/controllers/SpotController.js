@@ -1,12 +1,21 @@
 import { Op } from 'sequelize'
+import { isBefore, isAfter } from 'date-fns'
 
+import workHours from '../../config/dateTime'
 import Desk from '../models/Desk'
 import User from '../models/User'
 
 class SpotController {
-  async update(req, res) {
-    const spot = await Desk.findByPk(req.params.id)
+  async store(req, res) {
+    const dateNow = new Date()
+    if (
+      isBefore(dateNow, workHours.startOfDay) ||
+      isAfter(dateNow, workHours.endOfDay)
+    ) {
+      return res.json({ error: 'Escritorio fechado' })
+    }
 
+    const spot = await Desk.findByPk(req.params.id)
     if (!spot) {
       return res.status(400).json({ error: 'Lugar não encontrado!' })
     }
