@@ -13,3 +13,15 @@ yarn
 
 yarn dev
 ```
+
+criar arquivo .env na raiz do projeto, conforme o modelo do arquivo .env-example
+
+## Database
+
+O projeto foi feito utilizando banco postgres.
+Os acessos do banco(HOST, USER, PASS, DB-NAME) você configura no arquivo .env
+Para criar as tabelas, basta rodar o comando
+
+```
+yarn migration
+```
