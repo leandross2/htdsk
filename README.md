@@ -14,7 +14,7 @@ yarn
 yarn dev
 ```
 
-criar arquivo .env na raiz do projeto, conforme o modelo do arquivo .env-example
+***criar arquivo .env na raiz do projeto, conforme o modelo do arquivo .env-example***
 
 ## Database
 
