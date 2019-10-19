@@ -11,5 +11,7 @@ describe('User', () => {
   beforeEach(async () => {
     await truncate()
   })
-  describe('Controlller', () => {})
+  describe('Controlller', () => {
+    expect(1).toBe(1)
+  })
 })
