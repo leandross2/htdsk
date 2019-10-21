@@ -17,7 +17,7 @@ describe('User', () => {
       const response = await request(app)
         .post('/users')
         .send(user)
-      expect(response.body).toHaveProperty('id')
+      expect(response.body).toHaveProperty('ids')
     })
 
     it('não deve ser possivel cadastrar dois usuarios com o mesmo email', async () => {
