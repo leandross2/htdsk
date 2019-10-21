@@ -1,3 +1,5 @@
+https://travis-ci.org/leandross2/htdsk.svg?branch=master
+
 # HTDSK
 
 O projeto foi feito utilizando o gerenciador de pacotes yarn, então caso nao tenha ele instalado, segue a linha de instalação a baixo.
