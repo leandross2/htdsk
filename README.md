@@ -1,4 +1,4 @@
-https://travis-ci.org/leandross2/htdsk.svg?branch=master
+[![Build Status](https://travis-ci.org/leandross2/htdsk.svg?branch=master)](https://travis-ci.org/leandross2/htdsk)
 
 # HTDSK
 
