@@ -17,6 +17,7 @@ class UserController {
     } = await User.create(req.body)
 
     return res.json({
+      id,
       name,
       email,
       department_id,
