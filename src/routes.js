@@ -12,8 +12,11 @@ const routes = new Router()
 routes.get('/', (req, res) => {
   res.json({ sucesso: true })
 })
-routes.post('/', UserController.store)
+
+routes.get('/users', UserController.index)
 routes.post('/users', UserController.store)
+routes.put('/users/:id', UserController.update)
+
 routes.post('/session', SessionController.store)
 
 routes.use(authMiddleware)
