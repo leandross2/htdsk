@@ -12,6 +12,7 @@ const routes = new Router()
 routes.get('/', (req, res) => {
   res.json({ sucesso: true })
 })
+routes.post('/', UserController.store)
 routes.post('/users', UserController.store)
 routes.post('/session', SessionController.store)
 
